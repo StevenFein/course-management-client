@@ -1,0 +1,18 @@
+<div *ngIf="course">
+    <h2>{{ course.name }}</h2>
+    <div>
+        Name:
+        <input [(ngModel)]="course.name" placeholder="Name"/>
+    </div>
+    <div>
+        Description:
+        <input [(ngModel)]="course.description" placeholder="Description"/>
+    </div>
+    <div>
+        Units:
+        <input [(ngModel)]="course.units" placeholder="Units"/>
+    </div>
+    <button (click)="updateCourse(course)" *ngIf="course.id">Save</button>
+    <button (click)="deleteCourse(course)" *ngIf="course.id">Delete</button>
+    <button (click)="createCourse(course)" *ngIf="!course.id">Create</button>
+</div>
