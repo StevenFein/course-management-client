@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditCourseComponent } from './Components/edit-course/edit-course.component';
 import { FormsModule } from '@angular/forms';
+import { EditStudentComponent } from './Components/edit-student/edit-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    EditStudentComponent
   ],
   imports: [
     BrowserModule,

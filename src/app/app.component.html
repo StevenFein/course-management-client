@@ -1,3 +1,4 @@
+<h2>Course Table</h2>
 <button (click)="initNewCourse()">Create New Course</button>
 
 <table>
@@ -18,5 +19,24 @@
         </tr>
     </tbody>
 </table>
-
 <app-edit-course [course]="courseToEdit" (courseUpdated)="updateCourseList($event)"></app-edit-course>
+
+<h2>Student Table</h2>
+<button (click)="initNewStudent()">Create New Student</button>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td><button (click)="editStudent(student)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+<app-edit-student [student]="studentToEdit" (studentUpdated)="updateStudentList($event)"></app-edit-student>
