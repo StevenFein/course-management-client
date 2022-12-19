@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Course } from './Models/course';
 import { Student } from './Models/student';
+import { User } from './Models/user';
+import { AccountService } from './Services/account.service';
 import { CourseService } from './Services/course.service';
 import { StudentService } from './Services/student.service';
 
@@ -17,16 +19,15 @@ export class AppComponent {
   students: Student[] = [];
   studentToEdit?: Student;
 
-  constructor(private courseService: CourseService, private studentService: StudentService){}
+  constructor(private courseService: CourseService,
+     private studentService: StudentService,
+     private accountService: AccountService){}
 
   ngOnInit() : void {
-    this.courseService
-    .getCourses()
-    .subscribe((result: Course[]) => (this.courses = result));
-
-    this.studentService
-    .getStudents()
-    .subscribe((result: Student[]) => (this.students = result));
+    this.getCourses();
+    this.getStudents();
+    this.setCurrentUser();
+    
   }
 
   updateCourseList(courses: Course[]){
@@ -48,5 +49,23 @@ export class AppComponent {
   }
   editStudent(student: Student){
     this.studentToEdit = student;
+  }
+
+  getCourses(){
+    this.courseService
+    .getCourses()
+    .subscribe((result: Course[]) => (this.courses = result));
+  }
+  getStudents(){
+    this.studentService
+    .getStudents()
+    .subscribe((result: Student[]) => (this.students = result));
+  }
+
+  setCurrentUser(){
+    const userString = localStorage.getItem('user');
+    if(!userString) return;
+    const user: User = JSON.parse(userString);
+    this.accountService.setCurrentUser(user);
   }
 }
