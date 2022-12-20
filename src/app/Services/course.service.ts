@@ -10,8 +10,9 @@ import { Course } from '../Models/course';
 export class CourseService {
   private url="BasicCourse";
   private getAll = "GetAllCourses";
-  private update = "UpdateCourse";
-  private create = "CreateCourse";
+  private update = "OldUpdateCourse";
+  private create = "OldCreateCourse";
+  private delete = "Old";
   constructor(private http: HttpClient) { }
 
   public getCourses() : Observable<Course[]>{
@@ -27,6 +28,6 @@ export class CourseService {
   }
 
   public deleteCourse(course: Course) : Observable<Course[]>{
-    return this.http.delete<Course[]>(`${environment.apiUrl}/${this.url}/${course.id}`);
+    return this.http.delete<Course[]>(`${environment.apiUrl}/${this.url}/${this.delete}${course.id}`);
   }
 }

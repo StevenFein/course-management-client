@@ -8,13 +8,17 @@ import { EditCourseComponent } from './Components/edit-course/edit-course.compon
 import { FormsModule } from '@angular/forms';
 import { EditStudentComponent } from './Components/edit-student/edit-student.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HomeComponent } from './Components/home/home.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditCourseComponent,
     EditStudentComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

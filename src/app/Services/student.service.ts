@@ -11,7 +11,7 @@ export class StudentService {
   private url="BasicStudent";
   private getAll = "GetAllStudents";
   private update = "UpdateStudent";
-  private create = "CreateStudent";
+  private create = "OldCreateStudent";
 
   constructor(private http: HttpClient) { }
 
